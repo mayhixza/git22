@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Login</title>
+	</head>
+	<body>
+		<%- include("../partials/header", {isLoggedIn:false, isAdmin:false}); %>
+
+		<div class="container-lg">
+			<div
+				style="
+					width: 50vw;
+					margin: 5rem auto;
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+					border-radius: 10px;
+					padding-bottom: 2rem;
+					padding-top: 1rem;
+				"
+			>
+				<h3
+					style="
+						text-align: center;
+						padding-top: 1rem;
+						text-align: center;
+						padding-top: 8px;
+						padding-bottom: 10px;
+					"
+				>
+					User Login
+				</h3>
+				<form
+					action="/auth/login"
+					method="POST"
+					style="
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						place-items: center;
+						height: 100%;
+					"
+				>
+					<div style="padding: 2rem 2rem; width: 100%">
+						<input
+							type="text"
+							id="username"
+							name="username"
+							placeholder="Username"
+							required
+							class="form-control"
+							style="margin: 10px 0; padding: 10px 15px"
+						/>
+
+						<input
+							type="password"
+							id="password"
+							name="password"
+							placeholder="password"
+							required
+							class="form-control"
+							style="margin: 10px 0; padding: 10px 15px"
+						/>
+						<p style="font-size: 14px; color: rgba(0, 0, 0, 0.6)">
+							Are you an admin? Login
+							<a href="/auth/adminLogin">here</a>
+						</p>
+						<button
+							type="submit"
+							class="btn btn-outline-primary"
+							style="font-size: 15px; padding: 8px 20px"
+						>
+							Login
+						</button>
+					</div>
+					<div>
+						<img src="/signin_bg.jpg" alt="" style="width: 90%" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

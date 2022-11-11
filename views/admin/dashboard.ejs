@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin Dashboard</title>
+		<style>
+			.pfp {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+			}
+			.user_card {
+				padding: 1rem;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				border-radius: 10px;
+			}
+			.user_card_name {
+				font-size: 23px;
+				margin-top: 10px;
+			}
+			.grid_container {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+				grid-gap: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<%- include("../partials/header", {isLoggedIn: isLoggedIn, isAdmin:
+		isAdmin}) %>
+
+		<div
+			class="container-lg pt-5 d-flex flex-column"
+			style="max-width: 80%"
+		>
+			<div class="error-wrap">
+				<% if(locals.error){ %>
+				<p class="error"><%= locals.error %></p>
+				<% } %>
+			</div>
+			<form action="/admin/dashboard" method="POST" style="width: 40%">
+				<h3
+					style="
+						font-size: 20px;
+						margin-bottom: 1.5rem;
+						margin-top: 0.4rem;
+					"
+				>
+					Add New User
+				</h3>
+				<input
+					type="text"
+					id="name"
+					name="name"
+					placeholder="Name"
+					required
+					class="form-control"
+					style="margin: 10px 0; padding: 10px 15px"
+				/>
+
+				<input
+					type="text"
+					id="class"
+					name="class"
+					placeholder="Class"
+					required
+					class="form-control"
+					style="margin: 10px 0; padding: 10px 15px"
+				/>
+
+				<button type="submit" class="btn btn-outline-primary my-2">
+					Add user</button
+				><br />
+			</form>
+		</div>
+
+		<div class="container-lg pt-5" style="max-width: 80%">
+			<div class="grid_container">
+				<% for(const user of users) {%>
+
+				<a
+					href="/user/profile/<%= user._id %>"
+					style="text-decoration: none; color: initial"
+				>
+					<div class="user_card">
+						<img
+							src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+							alt="pfp"
+							class="pfp"
+						/>
+						<h3
+							class="user_card_name"
+							style="color: rgba(0, 0, 0, 0.8)"
+						>
+							<%= user.name %>
+						</h3>
+						<p class="m-0 text-secondary" style="font-size: 16px">
+							<%= user.username %>
+						</p>
+
+						<p class="m-0 text-secondary" style="font-size: 16px">
+							<%= user.class %>
+						</p>
+					</div>
+				</a>
+
+				<% } %>
+			</div>
+		</div>
+	</body>
+</html>

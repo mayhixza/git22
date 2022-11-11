@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<%- include("../partials/header", {isLoggedIn: isLoggedIn, isAdmin:
+		isAdmin}) %> <%-include("../partials/coun_avail") %>
+
+		<div
+			class="container-lg"
+			style="
+				max-width: 70%;
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+				border-radius: 10px;
+				margin: 1rem auto;
+			"
+		>
+			<div
+				style="
+					width: 100%;
+					border-bottom: 1px solid #ddd;
+					padding: 1rem 1rem 5px 1rem;
+				"
+			>
+				<h2 style="font-size: 20px">Booked Slot</h2>
+			</div>
+			<div style="padding: 1rem 2rem; padding-bottom: 1rem">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col" style="font-size: 15px">#</th>
+							<th scope="col" style="font-size: 15px">Name</th>
+							<th scope="col" style="font-size: 15px">Class</th>
+							<th scope="col" style="font-size: 15px">Time</th>
+							<th scope="col" style="font-size: 15px">
+								Description
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Mark</td>
+							<td>XI A</td>
+							<td>10:00 AM</td>
+							<td>Talk about abroad studies...</td>
+						</tr>
+
+						<tr>
+							<th scope="row">2</th>
+							<td>Mark</td>
+							<td>XI A</td>
+							<td>10:00 AM</td>
+							<td>Talk about abroad studies...</td>
+						</tr>
+
+						<tr>
+							<th scope="row">3</th>
+							<td>Mark</td>
+							<td>XI A</td>
+							<td>10:00 AM</td>
+							<td>Talk about abroad studies...</td>
+						</tr>
+
+						<tr>
+							<th scope="row">4</th>
+							<td>Mark</td>
+							<td>XI A</td>
+							<td>10:00 AM</td>
+							<td>Talk about abroad studies...</td>
+						</tr>
+
+						<tr>
+							<th scope="row">5</th>
+							<td>Mark</td>
+							<td>XI A</td>
+							<td>10:00 AM</td>
+							<td>Talk about abroad studies...</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
